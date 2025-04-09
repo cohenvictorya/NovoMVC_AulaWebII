@@ -4,43 +4,28 @@
     ViewData["Title"] = "Excluir Produto";
 }
 
-<div class="container mt-4">
+<div class="container mt-5">
+    <h2 class="mb-4 text-danger">@ViewData["Title"]</h2>
 
-    <h2 class="mb-4 text-danger">Excluir Produto</h2>
-
-    <div class="alert alert-warning" role="alert">
-        <strong>Atenção:</strong> Tem certeza que deseja excluir este produto?
+    <div class="alert alert-warning">
+        <strong>Tem certeza de que deseja excluir este produto?</strong>
     </div>
 
-    <div class="card shadow-sm mb-4">
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Informações do Produto</h5>
-            <hr />
             <dl class="row">
-                <dt class="col-sm-3 text-end fw-bold">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </dt>
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Nome)
-                </dd>
-                <dt class="col-sm-3 text-end fw-bold">
-                    @Html.DisplayNameFor(model => model.Preco)
-                </dt>
-                <dd class="col-sm-9">
-                    R$ @Model.Preco.ToString("N2")
-                </dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Preco)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Preco)</dd>
             </dl>
         </div>
     </div>
 
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="mt-4">
         <input type="hidden" asp-for="ID" />
-        <button type="submit" class="btn btn-danger me-2">
-            <i class="bi bi-trash-fill"></i> Excluir
-        </button>
-        <a asp-action="Index" class="btn btn-secondary">
-            <i class="bi bi-arrow-left"></i> Cancelar
-        </a>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
-
 </div>
